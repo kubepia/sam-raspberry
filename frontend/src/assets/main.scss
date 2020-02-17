@@ -1,0 +1,9 @@
+// customize css
+
+@import "variables";
+@import "~bulma/bulma";
+@import "overrides";
+
+.hero-body {
+    padding: 1rem 2rem;
+  }
