@@ -32,12 +32,13 @@
         </nav>
       </div>
       <router-view/>
+      <Footer/>
       <!-- Hero content: will be in the middle -->
       <!-- <div class="hero-body">
         <div class="container">
           <div class="card">
             <div class="card-image">
-              <figure class="image is-3by1">
+              <figure class="image is-4by1">
                 <img src="img/content/parasite.png" alt="Placeholder image" />
               </figure>
             </div>
@@ -50,6 +51,18 @@
     </section>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import Footer from '@/views/Footer.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Footer
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
