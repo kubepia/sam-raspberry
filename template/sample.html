@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="../frontend/public/css/flickity.css">
+    <style>
+        /* external css: flickity.css */
+
+        * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+        }
+
+        .gallery {
+            background: #EEE;
+        }
+
+        .gallery-cell {
+            width: 28%;
+            height: 200px;
+            margin-right: 10px;
+            background: #8C8;
+            counter-increment: gallery-cell;
+        }
+
+        .gallery-cell.is-selected {
+            background: #ED2;
+        }
+
+        /* cell number */
+        .gallery-cell:before {
+            display: block;
+            text-align: center;
+            line-height: 200px;
+            font-size: 80px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <section style="width:500px">
+        <div class="gallery js-flickity" id="container">
+            <div class="gallery-cell"></div>
+            <div class="gallery-cell"></div>
+            <div class="gallery-cell"></div>
+            <div class="gallery-cell"></div>
+            <div class="gallery-cell"></div>
+            <div class="gallery-cell"></div>
+            <div class="gallery-cell"></div>
+        </div>
+    </section>
+
+
+
+    <script src="../frontend/public/js/flickity.pkgd.js"></script>
+    <script>
+        var flkty = new Flickity('#container', {
+            // options
+            cellAlign: 'left',
+            contain: true
+        });
+    </script>
+</body>
+
+</html>

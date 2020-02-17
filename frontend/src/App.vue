@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>-->
     <section class="hero is-primary">
       <!-- Hero header: will stick at the top -->
       <div class="hero-head">
@@ -31,26 +26,23 @@
           </div>
         </nav>
       </div>
-      <router-view/>
-      <!-- Hero content: will be in the middle -->
-      <!-- <div class="hero-body">
-        <div class="container">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-3by1">
-                <img src="img/content/parasite.png" alt="Placeholder image" />
-              </figure>
-            </div>
-            <div style="position: absolute;bottom: 3em;left:3em">
-              기생충 이벤트 보기
-            </div>
-          </div>
-        </div>
-      </div> -->
+       <router-view />
+
+      <Footer />
     </section>
   </div>
 </template>
+<script>
+// @ is an alias to /src
+import Footer from "@/views/Footer.vue";
 
+export default {
+  name: "Home",
+  components: {
+    Footer
+  }
+};
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
