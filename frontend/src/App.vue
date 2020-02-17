@@ -15,9 +15,9 @@
                 <img src="img/logo.png" alt class="logo" />
               </router-link>
               <router-link class="navbar-item" to="/">Home</router-link>
-              <router-link class="navbar-item" to="/">국내</router-link>
-              <router-link class="navbar-item" to="/">해외</router-link>
-              <router-link class="navbar-item" to="/">Live</router-link>
+              <router-link class="navbar-item" to="/all">영화</router-link>
+              <router-link class="navbar-item" to="/local">국내</router-link>
+              <router-link class="navbar-item" to="/foreign">해외</router-link>
             </div>
             <span class="navbar-toggle">
               <span></span>
@@ -25,53 +25,28 @@
               <span></span>
             </span>
             <div class="navbar-end navbar-menu">
-              <router-link class="navbar-item" to="/">login</router-link>
+              <router-link class="navbar-item" to="/login">login</router-link>
               <router-link class="navbar-item" to="/">signup</router-link>
             </div>
           </div>
         </nav>
       </div>
+      <router-view/>
       <!-- Hero content: will be in the middle -->
-      <div class="hero-body">
+      <!-- <div class="hero-body">
         <div class="container">
           <div class="card">
             <div class="card-image">
-              <figure class="image is-3by2">
-                <img
-                  src="img/parasite.jpg"
-                  alt="Placeholder image"
-                />
+              <figure class="image is-3by1">
+                <img src="img/content/parasite.png" alt="Placeholder image" />
               </figure>
             </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-48x48">
-                    <img
-                      src="img/parasite.jpg"
-                      alt="Placeholder image"
-                    />
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4">John Smith</p>
-                  <p class="subtitle is-6">@johnsmith</p>
-                </div>
-              </div>
-
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris.
-                <a>@bulmaio</a>.
-                <a href="#">#css</a>
-                <a href="#">#responsive</a>
-                <br />
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
+            <div style="position: absolute;bottom: 3em;left:3em">
+              기생충 이벤트 보기
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
   </div>
 </template>
@@ -96,6 +71,4 @@
     }
   }
 }
-
-
 </style>
