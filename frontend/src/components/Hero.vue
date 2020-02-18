@@ -10,9 +10,9 @@
             </a>
           </figure>
         </div>
-        <div style="position: absolute;bottom: 3em;left:3em" class="has-text-white ">
-            <p class="is-size-3">행복은 나눌수록 커지자나요.</p>
-            <p>#Oscars #Oscar2020 #Parasite #기생충 #BongJoonHo</p>
+        <div style="position: absolute;bottom: 3em;left:3em" class="has-text-white">
+          <p class="is-size-3">행복은 나눌수록 커지잖아요.</p>
+          <p>#Oscars #Oscar2020 #Parasite #기생충 #BongJoonHo</p>
         </div>
       </div>
     </div>
@@ -20,9 +20,7 @@
 </template>
 
 <script>
-
 </script>
 
 <style lang="scss">
-
 </style>
