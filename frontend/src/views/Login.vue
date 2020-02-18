@@ -1,17 +1,19 @@
 
 <template>
-  <div class="container main-div">
-    <p class="title-color is-size-1">로그인</p>
-    <div class="container is-widescreen">
+  <section class="hero is-dark">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">로그인</h1>
+      </div>
       <div class="columns is-centered">
-        <div class="column is-10-widescreen">
+        <div class="column is-4-widescreen">
           <div class="box fullheight">
             <p class="label has-text-weight-bold has-text-white is-size-4">Btv계정으로 로그인</p>
             <LoginBtv />
           </div>
         </div>
 
-        <div class="column is-10-widescreen">
+        <div class="column is-4-widescreen">
           <div class="box fullheight">
             <p class="label has-text-weight-bold has-text-white is-size-4">SNS계정으로 로그인</p>
             <LoginSNS
@@ -24,7 +26,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -74,7 +76,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
 p {
   padding-top: 10px;
   padding-bottom: 10px;

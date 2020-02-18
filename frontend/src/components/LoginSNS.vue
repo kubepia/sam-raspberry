@@ -16,7 +16,7 @@ export default {
   props: ["title", "linkURL", "bgColor"]
 };
 </script>
-<style>
+<style lang="scss">
 .bgColor {
   
 }

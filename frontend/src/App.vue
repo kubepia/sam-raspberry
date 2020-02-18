@@ -21,12 +21,12 @@
             </span>
             <div class="navbar-end navbar-menu">
               <router-link class="navbar-item" to="/login">login</router-link>
-              <router-link class="navbar-item" to="/">signup</router-link>
+              <router-link class="navbar-item" to="/account">signup</router-link>
             </div>
           </div>
         </nav>
       </div>
-       <router-view />
+      <router-view />
 
       <Footer />
     </section>
