@@ -26,12 +26,17 @@
                         <div class="navbar-end navbar-menu">
                             <router-link class="navbar-item" to="/login">login</router-link>
                             <router-link class="navbar-item" to="/login">signup</router-link>
+                            <router-link class="navbar-item" to="/account">
+                                <span class="icon has-text-white">
+                                    <i class="fas fa-lg fa-user"></i>
+                                </span>
+                            </router-link>
                         </div>
                     </div>
                 </nav>
             </div>
             <router-view />
-            <br>
+            <br />
             <Footer />
         </section>
     </div>
