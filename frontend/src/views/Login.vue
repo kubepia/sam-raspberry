@@ -1,19 +1,19 @@
 
 <template>
-  <div class="container">
-    <p class="title-color title1">로그인</p>
-    <div class="container is-widescreen  is-fullheight">
-      <div class="columns is-centered is-fullheight">
-        <div class="column is-10-widescreen is-fullheight">
-          <div class="box">
-            <p class="label title-color2">Btv계정으로 로그인</p>
+  <div class="container main-div">
+    <p class="title-color is-size-1">로그인</p>
+    <div class="container is-widescreen">
+      <div class="columns is-centered">
+        <div class="column is-10-widescreen">
+          <div class="box fullheight">
+            <p class="label has-text-weight-bold has-text-white is-size-4">Btv계정으로 로그인</p>
             <LoginBtv />
           </div>
         </div>
 
-        <div class="column is-10-widescreen is-fullheight">
-          <div class="box">
-            <p class="label title-color2">SNS계정으로 로그인</p>
+        <div class="column is-10-widescreen">
+          <div class="box fullheight">
+            <p class="label has-text-weight-bold has-text-white is-size-4">SNS계정으로 로그인</p>
             <LoginSNS
               v-for="btn in sns_btns"
               v-bind:key="btn.id"
@@ -40,10 +40,30 @@ export default {
           linkURL: "img/content/facebook.png",
           title: "페이스북"
         },
-        { id: 1, linkURL: "img/content/naver.png", title: "네이버", bgColor:"#" },
-        { id: 2, linkURL: "img/content/kakao.png", title: "카카오", bgColor:"#" },
-        { id: 3, linkURL: "img/content/google.png", title: "구글", bgColor:"#" },
-        { id: 4, linkURL: "img/content/skt.png", title: "T아이디", bgColor:"#" }
+        {
+          id: 1,
+          linkURL: "img/content/naver.png",
+          title: "네이버",
+          bgColor: "#"
+        },
+        {
+          id: 2,
+          linkURL: "img/content/kakao.png",
+          title: "카카오",
+          bgColor: "#"
+        },
+        {
+          id: 3,
+          linkURL: "img/content/google.png",
+          title: "구글",
+          bgColor: "#"
+        },
+        {
+          id: 4,
+          linkURL: "img/content/skt.png",
+          title: "T아이디",
+          bgColor: "#"
+        }
       ]
     };
   },
@@ -56,8 +76,14 @@ export default {
 
 <style scoped>
 p {
-  padding-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.main-div {
   padding-bottom: 20px;
+}
+.fullheight {
+  height: 100%;
 }
 .title-color {
   color: #ffffff;
