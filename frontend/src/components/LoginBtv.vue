@@ -1,7 +1,5 @@
 <template>
-          <form action="/" class="box">
-            <label class="label title-color2">Btv계정으로 로그인</label>
-            <br />
+          <form action="/">
             <div class="field">
               <div class="control has-icons-left">
                 <input type="email" placeholder="이메일을 입력해주세요." class="input" required />
@@ -21,13 +19,13 @@
             <div class="field">
               <div class="columns is-left is-gapless">
                 <div class="column is-4-widescreen">
-                  <label class="grey-color">
+                  <label class="title-color3">
                     <input type="checkbox" />
                     아이디 저장
                   </label>
                 </div>
                 <div class="column is-4-widescreen">
-                  <label class="grey-color">
+                  <label class="title-color3">
                     <input type="checkbox" />
                     자동 로그인
                   </label>
@@ -40,13 +38,13 @@
             </div>
             <div class="columns is-centered is-gapless">
               <div class="column">
-                <router-link class="grey-color" to="#">아이디 찾기</router-link>
+                <a class="title-color3" to="#">아이디 찾기</a>
               </div>
               <div class="column">
-                <router-link class="grey-color" to="#">비밀번호 재설정</router-link>
+                <a class="title-color3" to="#">비밀번호 재설정</a>
               </div>
               <div class="column">
-                <router-link class="grey-color" to="#">회원가입</router-link>
+                <a class="title-color3" to="#">회원가입</a>
               </div>
             </div>
           </form>
@@ -80,7 +78,7 @@ export default {
   font-weight: bold;
 }
 .grey-color {
-  background: #333333;
+  background: #272B30;
   color: #ffffff;
   font-weight: bold;
 }
@@ -92,5 +90,8 @@ export default {
 .title-color2 {
   color: #ffffff;
   font-weight: bold;
+}
+.title-color3 {
+  color: #ffffff;
 }
 </style>
