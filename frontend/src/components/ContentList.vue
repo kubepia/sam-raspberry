@@ -3,21 +3,19 @@
         <div class="has-text-left">
             <h1 class="is-size-3">{{genreName}}</h1>
         </div>
-        <div class>
-            <carousel :navigationEnabled="true" :perPage="5">
-                <slide v-for="movie in movies" v-bind:key="movie.id">
-                    <Card v-bind:image="movie.image" v-bind:title="movie.title"/>
-                </slide>
-            </carousel>
+        <div class="columns is-multiline is-left is-variable is-0">
+            <div class="column is-2" v-for="movie in movies" v-bind:key="movie.id">
+                <Card v-bind:image="movie.image" v-bind:title="movie.title" />
+            </div>
         </div>
     </section>
 </template>
 <script>
 import { Carousel, Slide } from "vue-carousel";
-import Card from "@/components/Card.vue"
+import Card from "@/components/Card.vue";
 import axios from "axios";
 export default {
-    name: "ContentMenu",
+    name: "ContentList",
     props: ["genreName", "genre"],
     computed: {},
     data: () => {
@@ -63,5 +61,4 @@ export default {
 </script>
 
 <style lang="scss">
-
 </style>
