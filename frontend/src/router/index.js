@@ -31,11 +31,7 @@ const routes = [{
   {
     path: '/account',
     name: 'Account',
-<<<<<<< HEAD
     component: Account
-=======
-    component: Login
->>>>>>> m1
   },
   {
     path: '/about',

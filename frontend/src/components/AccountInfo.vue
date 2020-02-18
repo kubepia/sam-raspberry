@@ -1,101 +1,85 @@
 <template>
-  <div class="main-div">
-    <form action="/" class="box">
-      <div class="field">
-        <div class="control columns is-gapless is-multiline is-mobile">
-          <div class="column is-one-quarter">이름</div>
-          <div class="column is-fullwidth">
-            <input
-              type="text"
-              class="input"
-              style="background-color: transparent;"
-              v-bind:value="name"
-              readonly
-            />
-          </div>
+    <div class="columns is-centered">
+        <div class="column">
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">이름</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                            <input class="input" type="text" placeholder="Name" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded has-icons-left has-icons-right">
+                            <input
+                                class="input is-success"
+                                type="email"
+                                placeholder="Email"
+                                value="alex@smith.com"
+                            />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="icon is-small is-right">
+                                <i class="fas fa-check"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label"></div>
+                <div class="field-body">
+                    <div class="field is-expanded">
+                        <div class="field has-addons">
+                            <p class="control">
+                                <a class="button is-static">010</a>
+                            </p>
+                            <p class="control is-expanded">
+                                <input class="input" type="tel" placeholder="Your phone number" />
+                            </p>
+                        </div>
+                        <p class="help">Do not enter the first zero</p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <!-- Left empty for spacing -->
+                </div>
+                <div class="field-body">
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-primary ">수 정</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-primary ">취 소</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="control columns is-gapless is-multiline is-mobile">
-          <div class="column is-one-quarter">생년월일</div>
-          <div class="column is-fullwidth">
-            <input
-              type="text"
-              class="input"
-              style="background-color: transparent;"
-              v-bind:value="birth"
-              readonly
-            />
-          </div>
-        </div>
-        <div class="control columns is-gapless is-multiline is-mobile">
-          <div class="column is-one-quarter">이름</div>
-          <div class="column is-fullwidth">
-            <input
-              type="text"
-              class="input"
-              style="background-color: transparent;"
-              v-bind:value="name"
-              readonly
-            />
-          </div>
-        </div>
-        <div class="control has-icons-left">생년월일</div>
-        <div class="control has-icons-left">
-          성별
-          <input
-            type="text"
-            class="input"
-            style="background-color: transparent;"
-            v-bind:value="gender"
-            readonly
-          />
-        </div>
-        <div class="control has-icons-left">
-          휴대폰
-          <input
-            type="num"
-            placeholder="휴대폰 번호를 입력해주세요."
-            class="input"
-            v-bind:value="hp"
-            required
-          />
-          <span class="icon is-small is-left">
-            <i class="fa fa-envelope"></i>
-          </span>
-        </div>
-        <div class="control has-icons-left">
-          이메일
-          <input
-            type="email"
-            placeholder="이메일을 입력해주세요."
-            class="input"
-            v-bind:value="email"
-            required
-          />
-          <span class="icon is-small is-left">
-            <i class="fa fa-envelope"></i>
-          </span>
-        </div>
-      </div>
-      <br />
-      <div class="field">
-        <button class="button is-fullwidth is-rounded grey-color">수정</button>
-      </div>
-    </form>
-  </div>
+    </div>
 </template>
 <script>
 export default {
-  props: ["name", "birth", "gender", "hp", "email"]
+    props: ["name", "birth", "gender", "hp", "email"]
 };
 </script>
 <style scoped>
 .main-div {
-  padding: 20px;
+    padding: 20px;
 }
 .field {
-  padding: 10px;
+    padding: 10px;
 }
 .control {
-  padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 </style>
