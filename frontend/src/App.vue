@@ -39,12 +39,9 @@
             </section>
             <router-view />
         </div>
-      </section>
-      <router-view />
-    </div>
 
-    <Footer />
-  </div>
+        <Footer />
+    </div>
 </template>
 <script>
 // @ is an alias to /src

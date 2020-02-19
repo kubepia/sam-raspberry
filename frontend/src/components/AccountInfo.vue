@@ -163,11 +163,11 @@ export default {
       params.append("user_email", this.user_email);
       params.append("user_tel", this.user_tel);
       params.append("user_nickname", this.user_nickname);
-      alert("1");
+      // alert("1");
       axios
         .post(post_url, params)
         .then(res => {
-          alert("2");
+          // alert("2");
           //console.log(res.data);
           if (res.data.status == "ok") {
             this.user_name = res.data.data.user_name;
@@ -183,7 +183,7 @@ export default {
           }
         })
         .catch(error => {
-          alert("3");
+          // alert("3");
           console.log(error);
         });
     }

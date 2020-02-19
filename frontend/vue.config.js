@@ -19,13 +19,13 @@ module.exports = {
           "^/api": "/api"
         }
       },
-      "/users": {
-        target: "http://localhost:8090/",
-        changeOrigin: true,
-        pathRewrite: {
-          "^/users": "/users"
-        }
-      }
+      // "/users": {
+      //   target: "http://localhost:8090/",
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     "^/users": "/users"
+      //   }
+      // }
     }
   },
   outputDir: path.resolve(__dirname, "../backend/public")

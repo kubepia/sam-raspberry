@@ -72,15 +72,15 @@ export default {
       var params = new URLSearchParams();
       params.append("user_email", this.user_email);
       params.append("user_pw", this.user_pw);
-      alert(this.user_email);
+      // alert(this.user_email);
       let router = this.$router;
 
       axios
         .post(post_url, params)
         .then(res => {
-          //console.log(res.data);
-          if (res.data.status == "ok") {
-            //console.log(res.data.data);
+          // console.log(res);
+          if (200 == res.status) {
+            // console.log(res.data);
             router.go(-1);
           }
         })
