@@ -1,5 +1,5 @@
 <template>
-  <form action="/" v-model="login_form">
+  <form @submit.prevent="login">
     <div class="field">
       <div class="control has-icons-left">
         <input type="email" placeholder="이메일을 입력해주세요." v-model="user_email" class="input" required />
@@ -23,7 +23,7 @@
             <input type="checkbox" />
             아이디 저장
           </label>
-        </div>''
+        </div>
         <div class="column is-4-widescreen">
           <label class="title-color3">
             <input type="checkbox" />
@@ -31,10 +31,10 @@
           </label>
         </div>
       </div>
-    </div>''
+    </div>
     <br />
     <div class="field">
-      <button class="button is-fullwidth is-rounded grey-color" v-on:click="login">로그인</button>
+      <button class="button is-fullwidth is-rounded grey-color">로그인</button>
     </div>
     <div class="columns is-centered is-gapless">
       <div class="column">
@@ -51,14 +51,14 @@
 </template>
 <script>
 import axios from "axios";
+
 export default {
   name: "LoginBtv",
   data: () => {
     return {
-      user_email: "",
-      user_pw: ""
-      //movies: [],
-      //count: 0
+      errors: [],
+      user_email: "a@g",
+      user_pw: "passw0rd"
     };
   },
   created() {
@@ -66,25 +66,27 @@ export default {
   },
   methods: {
     login: function(event) {
-      var url = "http://localhost:8090/users/" + this.user_email;
+      //post_url
+      var post_url = "/api/login/";
+      //파라메터
+      var params = new URLSearchParams();
+      params.append("user_email", this.user_email);
+      params.append("user_pw", this.user_pw);
 
+      let router = this.$router;
+      alert(post_url);
+      alert(params);
       axios
-        .get(url)
+        .post(post_url, params)
         .then(res => {
           console.log(res.data);
-          //this.count = res.data.length;
-          //this.movies = res.data;
+          if (res.data.status == "ok") {
+            router.go(-1);
+          }
         })
         .catch(error => {
           console.log(error);
         });
-      // 메소드 안에서 사용하는 `this` 는 Vue 인스턴스를 가리킵니다
-      //alert(url);
-
-      // `event` 는 네이티브 DOM 이벤트입니다
-      if (event) {
-        //alert(event.target.tagName);
-      }
     }
   }
 };
