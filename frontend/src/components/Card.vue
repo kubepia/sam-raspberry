@@ -2,9 +2,9 @@
     <div class="card">
         <div class="card-image">
             <figure class="image is-2by3 is-covered">
-                <img v-bind:src="'img/content/'+image" alt />
+                <img :src="'img/content/'+geturl(this.movie)" alt />
             </figure>
-            <div v-if="membership" style="position:absolute;top:1rem;left:1rem" class="event-label">
+            <div v-if="movie.membership" style="position:absolute;top:1rem;left:1rem" class="event-label">
                 <span>T 할인특가</span>
             </div>
             <div
@@ -13,10 +13,10 @@
             >
                 <div class="container has-text-centered has-text-white-bis">
                     <p>
-                        <b>감독: 총감독</b>
+                        <b>감독: {{this.movie.director}}</b>
                     </p>
                     <p>
-                        <b>주연: 남배우, 여배우</b>
+                        <b>주연: {{this.movie.actors}}</b>
                     </p>
                 </div>
                 <div class="container has-text-centered">
@@ -39,14 +39,23 @@
             </div>
         </div>
         <div class="card-content">
-            <div class="item__title">{{title}}</div>
+            <div class="item__title">{{movie.name}}</div>
         </div>
     </div>
 </template>
 <script>
 export default {
     name: "Card",
-    props: ["image", "title","membership"]
+    props: {
+        movie : {
+            type: Object
+        }
+        },
+    methods: {
+        geturl:(movie)=>{
+            return `${movie.id}.jpg`
+        }
+    },
 };
 </script>
 <style lang="scss" scoped>

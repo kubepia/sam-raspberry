@@ -8,7 +8,7 @@
                 </div>
             </div>
         </section>
-        <ContentList genreName="전체" />
+        <ContentList displayName="전체" category="korean" condition="t"/>
     </div>
 </template>
 <script>

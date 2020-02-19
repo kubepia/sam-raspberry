@@ -1,11 +1,11 @@
 <template>
     <section class="container">
         <div class="has-text-left">
-            <h1 class="is-size-3">{{genreName}}</h1>
+            <h1 class="is-size-3">{{displayName}}</h1>
         </div>
         <div class="columns is-multiline is-left is-variable is-0">
             <div class="column is-2" v-for="movie in movies" v-bind:key="movie.id">
-                <Card v-bind:image="movie.image" v-bind:title="movie.title" />
+                <Card :movie="movie"/>
             </div>
         </div>
     </section>
@@ -16,22 +16,17 @@ import Card from "@/components/Card.vue";
 import axios from "axios";
 export default {
     name: "ContentList",
-    props: ["genreName", "genre"],
+    props: ["displayName", "category", "condition"],
     computed: {},
     data: () => {
         return {
             movies: [],
-            count: 0
         };
     },
     created() {
-        console.log(`title is ${this.title}`);
-        console.log(`count of movies is ${this.movies.length}`);
-        // this.getMovies('action')
         axios
-            .get("/api/movies/action")
+            .get(`/api/content/0/${this.category}/${this.condition}`)
             .then(res => {
-                this.count = res.data.length;
                 this.movies = res.data;
             })
             .catch(error => {});
@@ -44,18 +39,9 @@ export default {
         Card
     },
     methods: {
-        // getMovies:(genre)=>{
-        //     axios.get('/api/movies/action')
-        //     .then(res=>{
-        //         console.log(res.data);
-        //         console.log(`!!!!count of movies is ${res.data.length}`);
-        //         this.count = res.data.length
-        //         this.movies=res.data;
-        //         console.log('=======');
-        //     })
-        //     .catch(error=>{
-        //     })
-        // }
+        geturl:(movie)=>{
+            return `${movie.id}.jpg`
+        }
     }
 };
 </script>

@@ -6,7 +6,7 @@
         <div class>
             <carousel :navigationEnabled="true" :perPage="5">
                 <slide v-for="movie in movies" v-bind:key="movie.id">
-                    <Card :image="geturl(movie)" :title="movie.title" :membership="movie.membership"/>
+                    <Card :movie="movie"/>
                 </slide>
             </carousel>
         </div>
@@ -44,18 +44,6 @@ export default {
         geturl:(movie)=>{
             return `${movie.id}.jpg`
         }
-        // getMovies:(genre)=>{
-        //     axios.get('/api/movies/action')
-        //     .then(res=>{
-        //         console.log(res.data);
-        //         console.log(`!!!!count of movies is ${res.data.length}`);
-        //         this.count = res.data.length
-        //         this.movies=res.data;
-        //         console.log('=======');
-        //     })
-        //     .catch(error=>{
-        //     })
-        // }
     }
 };
 </script>
