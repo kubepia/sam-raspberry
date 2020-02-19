@@ -1,12 +1,18 @@
-FROM node:12.16-buster-slim AS builder
+FROM myguddy/vuecli:latest AS builder
+
+RUN mkdir /app
+
+COPY . /app
+WORKDIR /app/frontend
+RUN npm i
+RUN npm run build
 
 
-RUN mkdir /frontend
-WORKDIR /frontend
-COPY . /frontend
-
-
-RUN npm i --production
+FROM node:12.16-buster-slim
+RUN mkdir /app
+WORKDIR /app/backend
+COPY --from=builder /app/backend .
+RUN npm i
 
 ENTRYPOINT ["node"]
 CMD ["bin/www"]
