@@ -29,7 +29,7 @@ router.post(
     console.log("Login process!");
 
     //post_url
-    var post_url = endpoint.login + "/api/login/";
+    var post_url = endpoint.users + "/api/login/";
     //파라메터
     var params = new URLSearchParams();
     //params.append("user_email", req.body.user_email);

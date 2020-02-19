@@ -49,6 +49,7 @@ router.post('/', function (req, res, next) {
       });
     });
 });
+
 router.get('/update', function (req, res, next) {
   console.log("get Account Info process!");
 
