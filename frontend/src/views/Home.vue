@@ -2,23 +2,25 @@
   <div class="home">
     <Hero />
     <br>
-    <ContentMenu genreName="B TV 인기 컨텐츠"/><br>
-    <ContentMenu genreName="고객님의 취향저격 베스트"/><br>
-    <ContentMenu genreName="액션 베스트"/><br>
-    <ContentMenu genreName="로맨스"/><br>
+    <ContentCarouselOffering displayName="고객님의 취향저격 베스트"/><br>
+    <ContentCarousel displayName="한국 영화 베스트" category="korean"/><br>
+    <ContentCarousel displayName="액션 베스트" category="action"/><br>
+    <ContentCarousel displayName="SF/Fantasy 베스트" category="sf_fantasy"/><br>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Hero from '@/components/Hero.vue'
-import ContentMenu from '@/components/ContentMenu.vue'
+import ContentCarousel from '@/components/ContentCarousel.vue'
+import ContentCarouselOffering from '@/components/ContentCarouselOffering.vue'
 
 export default {
   name: 'Home',
   components: {
     Hero,
-    ContentMenu
+    ContentCarousel,
+    ContentCarouselOffering,
   }
 }
 </script>

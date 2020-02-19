@@ -1,12 +1,12 @@
 <template>
     <section class="container">
         <div class="has-text-left">
-            <h1 class="is-size-3">{{genreName}}</h1>
+            <h1 class="is-size-3">{{displayName}}</h1>
         </div>
         <div class>
             <carousel :navigationEnabled="true" :perPage="5">
                 <slide v-for="movie in movies" v-bind:key="movie.id">
-                    <Card v-bind:image="movie.image" v-bind:title="movie.title"/>
+                    <Card :image="geturl(movie)" :title="movie.title" :membership="movie.membership"/>
                 </slide>
             </carousel>
         </div>
@@ -17,23 +17,18 @@ import { Carousel, Slide } from "vue-carousel";
 import Card from "@/components/Card.vue"
 import axios from "axios";
 export default {
-    name: "ContentMenu",
-    props: ["genreName", "genre"],
+    name: "ContentCarousel",
+    props: ["displayName", "category"],
     computed: {},
     data: () => {
         return {
             movies: [],
-            count: 0
         };
     },
     created() {
-        console.log(`title is ${this.title}`);
-        console.log(`count of movies is ${this.movies.length}`);
-        // this.getMovies('action')
         axios
-            .get("/api/movies/action")
+            .get("/api/offering")
             .then(res => {
-                this.count = res.data.length;
                 this.movies = res.data;
             })
             .catch(error => {});
@@ -46,6 +41,9 @@ export default {
         Card
     },
     methods: {
+        geturl:(movie)=>{
+            return `${movie.id}.jpg`
+        }
         // getMovies:(genre)=>{
         //     axios.get('/api/movies/action')
         //     .then(res=>{

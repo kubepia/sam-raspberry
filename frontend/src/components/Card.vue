@@ -4,7 +4,7 @@
             <figure class="image is-2by3 is-covered">
                 <img v-bind:src="'img/content/'+image" alt />
             </figure>
-            <div style="position:absolute;top:1rem;left:1rem" class="event-label">
+            <div v-if="membership" style="position:absolute;top:1rem;left:1rem" class="event-label">
                 <span>T 할인특가</span>
             </div>
             <div
@@ -46,7 +46,7 @@
 <script>
 export default {
     name: "Card",
-    props: ["image", "title"]
+    props: ["image", "title","membership"]
 };
 </script>
 <style lang="scss" scoped>
