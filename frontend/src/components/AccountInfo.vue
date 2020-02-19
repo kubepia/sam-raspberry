@@ -80,7 +80,7 @@
           <div class="field-body">
             <div class="field">
               <p class="control is-expanded has-icons-left has-icons-right">
-                <input class="input" type="text" v-model="membership_title" readonly disabled />
+                <input type="checkbox" v-model="membership" readonly disabled />
               </p>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default {
       user_tel: "",
       user_name: "",
       user_nickname: "",
-      membership: "",
+      membership: true,
       membership_title: "X"
     };
   },
