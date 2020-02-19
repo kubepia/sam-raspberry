@@ -16,11 +16,11 @@ import ContentCarousel from '@/components/ContentCarousel.vue'
 import ContentCarouselOffering from '@/components/ContentCarouselOffering.vue'
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     Hero,
     ContentCarousel,
     ContentCarouselOffering,
   }
-}
+};
 </script>

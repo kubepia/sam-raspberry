@@ -1,8 +1,8 @@
 <template>
-  <form action="/">
+  <form @submit.prevent="login">
     <div class="field">
       <div class="control has-icons-left">
-        <input type="email" placeholder="이메일을 입력해주세요." class="input" required />
+        <input type="email" placeholder="이메일을 입력해주세요." v-model="user_email" class="input" required />
         <span class="icon is-small is-left">
           <i class="fa fa-envelope"></i>
         </span>
@@ -10,7 +10,7 @@
     </div>
     <div class="field">
       <div class="control has-icons-left">
-        <input type="password" placeholder="비밀번호를 입력해주세요." class="input" required />
+        <input type="password" placeholder="비밀번호를 입력해주세요." v-model="user_pw" class="input" required />
         <span class="icon is-small is-left">
           <i class="fa fa-lock"></i>
         </span>
@@ -50,8 +50,45 @@
   </form>
 </template>
 <script>
+import axios from "axios";
+
 export default {
-  props: ["text", "bgColor", "linkURL"]
+  name: "LoginBtv",
+  data: () => {
+    return {
+      errors: [],
+      user_email: "a@g",
+      user_pw: "passw0rd"
+    };
+  },
+  created() {
+    // this.getMovies('action')
+  },
+  methods: {
+    login: function(event) {
+      //post_url
+      var post_url = "/api/login/";
+      //파라메터
+      var params = new URLSearchParams();
+      params.append("user_email", this.user_email);
+      params.append("user_pw", this.user_pw);
+      alert(this.user_email);
+      let router = this.$router;
+
+      axios
+        .post(post_url, params)
+        .then(res => {
+          //console.log(res.data);
+          if (res.data.status == "ok") {
+            //console.log(res.data.data);
+            router.go(-1);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
 };
 </script>
 

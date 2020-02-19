@@ -16,7 +16,6 @@
 </template>
 <script>
 export default {
-  //props: ["title", "bgColor", "linkURL"]
   props: ["title", "iconName"]
 };
 </script>
