@@ -12,7 +12,7 @@ FROM node:12.16-buster-slim
 RUN mkdir /app
 WORKDIR /app/backend
 COPY --from=builder /app/backend .
-RUN npm i
+RUN npm i --production
 
 ENTRYPOINT ["node"]
 CMD ["bin/www"]
