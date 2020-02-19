@@ -32,8 +32,8 @@ router.post(
     var post_url = endpoint.users + "/api/login/";
     //파라메터
     var params = new URLSearchParams();
-    //params.append("user_email", req.body.user_email);
-    //params.append("user_pw", req.body.user_pw);
+    params.append("user_email", req.body.user_email);
+    params.append("user_pw", req.body.user_pw);
 
     console.log("url: ", post_url);
 

@@ -77,13 +77,13 @@ router.get('/update', function (req, res, next) {
           console.log("ret.data.user_email : ", ret.data.user_email);
           res.json({
             status: "ok",
-            message: "login success",
+            message: "update success",
             data: ret.data
           });
         } else {
           res.json({
             status: "error",
-            message: "login fail"
+            message: "update fail"
           });
         }
       } else {

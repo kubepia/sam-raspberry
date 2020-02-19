@@ -72,7 +72,7 @@ export default {
       var params = new URLSearchParams();
       params.append("user_email", this.user_email);
       params.append("user_pw", this.user_pw);
-
+      alert(this.user_email);
       let router = this.$router;
 
       axios

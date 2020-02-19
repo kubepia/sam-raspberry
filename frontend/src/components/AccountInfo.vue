@@ -1,85 +1,201 @@
 <template>
+  <form @submit.prevent="login">
     <div class="columns is-centered">
-        <div class="column">
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    <label class="label">이름</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
-                        <p class="control is-expanded has-icons-left">
-                            <input class="input" type="text" placeholder="Name" />
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="field">
-                        <p class="control is-expanded has-icons-left has-icons-right">
-                            <input
-                                class="input is-success"
-                                type="email"
-                                placeholder="Email"
-                                value="alex@smith.com"
-                            />
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
-                        </p>
-                    </div>
-                </div>
+      <div class="column is-5-widescreen box">
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">이름</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Name"
+                  v-model="user_name"
+                  readonly
+                  disabled
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </p>
             </div>
-
-            <div class="field is-horizontal">
-                <div class="field-label">efe</div>
-                <div class="field-body">
-                    <div class="field is-expanded">
-                        <div class="field has-addons">
-                            <p class="control">
-                                <a class="button is-static">010</a>
-                            </p>
-                            <p class="control is-expanded">
-                                <input class="input" type="tel" placeholder="Your phone number" />
-                            </p>
-                        </div>
-                        <p class="help">Do not enter the first zero</p>
-                    </div>
-                </div>
-            </div>
-            <div class="field is-horizontal">
-                <div class="field-label">
-                    <!-- Left empty for spacing -->
-                </div>
-                <div class="field-body">
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-primary ">수 정</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-primary ">취 소</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">이메일</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left has-icons-right">
+                <input class="input is-success" type="email" v-model="user_email" readonly disabled />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">휴대폰</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left has-icons-right">
+                <input class="input" type="tel" placeholder="휴대폰 번호를 입력해주세요." v-model="user_tel" />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-mobile-alt"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">닉네임</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="닉네임을 입력해주세요." v-model="user_nickname" />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-mobile-alt"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">멤버쉽</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left has-icons-right">
+                <input class="input" type="text" v-model="membership_title" readonly disabled />
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <!-- Left empty for spacing -->
+          </div>
+          <div class="field-body">
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-primary" v-on:click="accountUpdate">수 정</button>
+              </div>
+              <div class="control">
+                <button class="button is-primary" v-on:click="cancel">취 소</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </form>
 </template>
 <script>
+import axios from "axios";
+
 export default {
-    props: ["name", "birth", "gender", "hp", "email"]
+  name: "AccountInfo",
+  data: () => {
+    return {
+      errors: [],
+      user_email: "a@g",
+      user_tel: "",
+      user_name: "",
+      user_nickname: "",
+      membership: "",
+      membership_title: "X"
+    };
+  },
+  created() {
+    //post_url
+    var post_url = "/api/users";
+    //파라메터
+    var params = new URLSearchParams();
+    params.append("user_email", this.user_email);
+
+    axios
+      .post(post_url, params)
+      .then(res => {
+        //console.log(res.data);
+        if (res.data.status == "ok") {
+          this.user_name = res.data.data.user_name;
+          this.user_email = res.data.data.user_email;
+          this.user_tel = res.data.data.user_tel;
+          this.user_nickname = res.data.data.user_nickname;
+          this.membership = res.data.data.membership;
+          if (!this.membership) {
+            this.membership_title = "X";
+          } else {
+            this.membership_title = "O";
+          }
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },
+  methods: {
+    cancel: function(event) {
+      let router = this.$router;
+
+      router.go(-1);
+    },
+    accountUpdate: function(event) {
+      //post_url
+      var post_url = "/api/users/update";
+      //파라메터
+      var params = new URLSearchParams();
+      params.append("user_email", this.user_email);
+      params.append("user_tel", this.user_tel);
+      params.append("user_nickname", this.user_nickname);
+
+      axios
+        .post(post_url, params)
+        .then(res => {
+          //console.log(res.data);
+          if (res.data.status == "ok") {
+            this.user_name = res.data.data.user_name;
+            this.user_email = res.data.data.user_email;
+            this.user_tel = res.data.data.user_tel;
+            this.user_nickname = res.data.data.user_nickname;
+            this.membership = res.data.data.membership;
+            if (!this.membership) {
+              this.membership_title = "X";
+            } else {
+              this.membership_title = "O";
+            }
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
 };
 </script>
 <style scoped>
 .main-div {
-    padding: 20px;
+  padding: 20px;
 }
 .field {
-    padding: 10px;
+  padding: 10px;
 }
 .control {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 </style>

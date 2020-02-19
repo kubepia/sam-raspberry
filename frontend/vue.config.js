@@ -19,18 +19,11 @@ module.exports = {
           "^/api": "/api"
         }
       },
-      "/login-api": {
+      "/users": {
         target: "http://localhost:8090/",
         changeOrigin: true,
         pathRewrite: {
-          "^/login-api": "/login-api"
-        }
-      },
-      "/users-api": {
-        target: "http://localhost:8091/",
-        changeOrigin: true,
-        pathRewrite: {
-          "^/users-api": "/user-api"
+          "^/users": "/users"
         }
       }
     }
