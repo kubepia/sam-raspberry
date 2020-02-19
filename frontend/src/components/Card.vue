@@ -4,6 +4,9 @@
             <figure class="image is-2by3 is-covered">
                 <img v-bind:src="'img/content/'+image" alt />
             </figure>
+            <div style="position:absolute;top:1rem;left:1rem" class="event-label">
+                <span>T 할인특가</span>
+            </div>
             <div
                 class="content is-vcentered"
                 style="position:absolute;top:0px;width:100%;height:100%"
@@ -43,12 +46,18 @@
 <script>
 export default {
     name: "Card",
-    props: ["image", "title"],
+    props: ["image", "title"]
 };
 </script>
 <style lang="scss" scoped>
 .card {
     padding: 10px 10px 0 10px;
+}
+.card:hover{
+    transform: scale(1.1, 1.1);
+}
+.card:hover .event-label{
+    transform: rotate(-5deg);
 }
 a.is-borderless {
     border: none;
@@ -63,5 +72,11 @@ a.is-borderless {
 }
 .content.is-vcentered:hover {
     opacity: 0.8;
+}
+.event-label{
+    padding: 5px;
+    color: white;
+    background-color: #F2540A;
+    font-size: 1.22em;
 }
 </style>

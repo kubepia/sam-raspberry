@@ -6,7 +6,7 @@
                 <div class="hero-head">
                     <nav class="main-nav navbar">
                         <div class="container">
-                            <div class="navbar-brand has-background-danger">
+                            <div class="navbar-brand log-background">
                                 <router-link class="navbar-item" to="/">
                                     <span style="width:100px">
                                         <!-- <i class="fas fa-tv"></i> -->
@@ -73,5 +73,8 @@ export default {
             color: #42b983;
         }
     }
+}
+.log-background{
+    background-color: #F2540A;
 }
 </style>
