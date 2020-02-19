@@ -74,13 +74,13 @@ export default {
       params.append("user_pw", this.user_pw);
 
       let router = this.$router;
-      alert(post_url);
-      alert(params);
+
       axios
         .post(post_url, params)
         .then(res => {
-          console.log(res.data);
+          //console.log(res.data);
           if (res.data.status == "ok") {
+            //console.log(res.data.data);
             router.go(-1);
           }
         })

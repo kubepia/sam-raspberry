@@ -32,8 +32,8 @@ router.post(
     var post_url = endpoint.login + "/api/login/";
     //파라메터
     var params = new URLSearchParams();
-    params.append("user_email", req.body.user_email);
-    params.append("user_pw", req.body.user_pw);
+    //params.append("user_email", req.body.user_email);
+    //params.append("user_pw", req.body.user_pw);
 
     console.log("url: ", post_url);
 
@@ -43,8 +43,6 @@ router.post(
         console.log("ret.status: ", ret.status);
         if (ret.status == "200") {
           if (ret.data.user_email) {
-            console.log("ret.data : ", ret.data);
-            console.log("ret.data.user_email : ", ret.data.user_email);
             res.json({
               status: "ok",
               message: "login success",
