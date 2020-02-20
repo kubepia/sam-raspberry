@@ -20,8 +20,7 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use(serveStatic(path.join(__dirname, 'public'), {
-    maxAge: '1h',
-    setHeaders: setCustomCacheControl
+    maxAge: '1h'
   }))
 
 app.use('/', indexRouter);
