@@ -4,9 +4,7 @@
             <figure class="image is-2by3 is-covered">
                 <img :src="'img/content/'+geturl(this.movie)" alt />
             </figure>
-            <div v-if="movie.membership" style="position:absolute;top:1rem;left:1rem" class="event-label">
-                <span>T 할인특가</span>
-            </div>
+            
             <div
                 class="content is-vcentered"
                 style="position:absolute;top:0px;width:100%;height:100%"
@@ -38,6 +36,9 @@
                 </div>
             </div>
         </div>
+        <div v-if="movie.membership" style="position:absolute;top:2rem;left:1rem" class="event-label">
+                <span>T 할인특가</span>
+            </div>
         <div class="card-content">
             <div class="item__title">{{movie.name}}</div>
         </div>

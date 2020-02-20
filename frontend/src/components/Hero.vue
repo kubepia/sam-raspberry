@@ -6,7 +6,7 @@
         <div class="card-image">
           <figure class="image is-3by1">
             <a href>
-              <img src="img/content/parasite.png" alt="Placeholder image" />
+              <img src="img/parasite.png" alt="Placeholder image" />
             </a>
           </figure>
         </div>
