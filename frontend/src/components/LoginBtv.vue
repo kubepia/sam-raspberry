@@ -74,13 +74,17 @@ export default {
       params.append("user_pw", this.user_pw);
       // alert(this.user_email);
       let router = this.$router;
-
+      let store = this.$store;
+      let userEmail = this.user_email;
       axios
         .post(post_url, params)
         .then(res => {
           // console.log(res);
           if (200 == res.status) {
             // console.log(res.data);
+            store.commit('setUserEmail',{
+              newEmail : userEmail
+            })
             router.go(-1);
           }
         })

@@ -1,4 +1,4 @@
-FROM myguddy/vuecli:latest AS builder
+FROM g3.skb:8500/external-image/vuecli:latest AS builder
 
 RUN mkdir /app
 
@@ -8,7 +8,7 @@ RUN npm i
 RUN npm run build
 
 
-FROM node:12.16-buster-slim
+FROM g3.skb:8500/external-image/node:12.16-buster-slim
 RUN mkdir /app
 WORKDIR /app
 COPY --from=builder /app/backend .
