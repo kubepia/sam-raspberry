@@ -26,7 +26,7 @@ export default {
         };
     },
     created() {
-        axios.defaults.headers.common['Authorization'] = "AUTH_TOKEN";
+        // axios.defaults.headers.common['PRIAVTE_KEY'] = this.$store.state.userEmail;
         axios
             .get("/api/offering")
             .then(res => {
