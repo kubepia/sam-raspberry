@@ -1,6 +1,8 @@
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var serveStatic = require('serve-static')
+
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
@@ -16,7 +18,11 @@ app.use(express.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(serveStatic(path.join(__dirname, 'public'), {
+    maxAge: '1h',
+    setHeaders: setCustomCacheControl
+  }))
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
