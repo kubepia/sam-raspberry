@@ -57,12 +57,15 @@ export default {
   data: () => {
     return {
       errors: [],
-      user_email: "a@g",
+      user_email: "",
       user_pw: "passw0rd"
     };
   },
+  
   created() {
     // this.getMovies('action')
+    this.user_email = this.$store.state.userEmail;
+
   },
   methods: {
     login: function(event) {
