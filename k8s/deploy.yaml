@@ -21,8 +21,8 @@ data:
   config.js: |-
     module.exports = {
         endpoint : {
-            account: "http://api-svc:8080/",
-            cms: "http://sam-cranberry-cms:8080/"
+            account: "http://api-svc:3001/",
+            cms: "http://cms-svc:3002/"
         }
     }
 

@@ -10,7 +10,7 @@ RUN npm run build
 
 FROM node:12.16-buster-slim
 RUN mkdir /app
-WORKDIR /app/backend
+WORKDIR /app
 COPY --from=builder /app/backend .
 RUN npm i --production
 
