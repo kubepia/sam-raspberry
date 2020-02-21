@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div>
         <div class="columns is-centered">
             <div class="column is-5-widescreen box">
                 <div class="field is-horizontal">
@@ -181,7 +181,11 @@ export default {
             params.append("user_nickname", this.user_nickname);
             let self = this;
             axios
-                .post(apiUrl, params)
+                .post(apiUrl, {
+                    userEmail: this.user_email,
+                    userTel: this.user_tel,
+                    userNickName: this.user_nickname
+                })
                 .then(res => {
                     // alert("2");
                     //console.log(res.data);
@@ -193,7 +197,6 @@ export default {
                         self.membership = res.data.membership;
                         self.membership = !!self.membership ? "O" : "X";
                     }
-                    
                 })
                 .catch(error => {
                     // alert("3");
