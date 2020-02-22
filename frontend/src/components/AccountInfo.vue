@@ -98,8 +98,8 @@
                             <p class="control is-expanded has-icons-left has-icons-right">
                                 <input
                                     class="input"
-                                    type="text"
-                                    v-model="membership_title"
+                                    type="check"
+                                    v-model="membership"
                                     readonly
                                     disabled
                                 />
@@ -139,8 +139,7 @@ export default {
             user_tel: "",
             user_name: "",
             user_nickname: "",
-            membership: "",
-            membership_title: "X"
+            membership: ""
         };
     },
     created() {
@@ -190,12 +189,15 @@ export default {
                     // alert("2");
                     //console.log(res.data);
                     if (res.status == 200) {
+                        console.log(JSON.stringify(res.data));
+                        
                         self.user_name = res.data.userName;
                         self.user_email = res.data.userEmail;
                         self.user_tel = res.data.userTel;
                         self.user_nickname = res.data.userNickName;
                         self.membership = res.data.membership;
-                        self.membership = !!self.membership ? "O" : "X";
+                        self.membership = self.membership ? "O" : "X";
+
                     }
                 })
                 .catch(error => {

@@ -65,6 +65,18 @@ spec:
             limits:
               cpu: 1000m
               memory: 2048Mi
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: nodejs
+            initialDelaySeconds: 3
+            periodSeconds: 60
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: nodejs
+            initialDelaySeconds: 1
+            periodSeconds: 3
       volumes:
       - name: app-config
         configMap:
