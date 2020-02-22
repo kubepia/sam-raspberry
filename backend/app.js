@@ -12,7 +12,16 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-app.use(logger('dev'));
+
+// log setting. ommit the health check log
+app.use(
+  logger(':date[iso] GMT :method :status :response-time ms size: :res[content-length]\t :url', {
+      skip: function (req, res) {
+          return '/health' == req.path 
+      }
+    })
+);
+
 app.use(express.json());
 app.use(express.urlencoded({
     extended: false
