@@ -39,7 +39,7 @@ spec:
     matchLabels:
       app: bff
       version: v1
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       name: bff
