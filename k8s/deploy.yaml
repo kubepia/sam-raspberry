@@ -84,4 +84,16 @@ spec:
           items:
           - key: config.js
             path: config.js
-            
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bff-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 8Gi
+---            
