@@ -39,7 +39,7 @@ spec:
     matchLabels:
       app: bff
       version: v1
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       name: bff
@@ -49,15 +49,15 @@ spec:
     spec:
       containers:
         - name: bff
-          image: g3.skb:8500/btv/bff:latest
+          image: kubepia/kubetv-bff:latest
           imagePullPolicy: Always
           volumeMounts:
-          - name: app-config
-            mountPath: /app/config.js
-            subPath: "config.js"
+            - name: app-config
+              mountPath: /app/config.js
+              subPath: "config.js"
           ports:
-          - name: nodejs
-            containerPort: 3000
+            - name: nodejs
+              containerPort: 3000
           resources:
             requests:
               cpu: 300m
@@ -78,12 +78,12 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
       volumes:
-      - name: app-config
-        configMap:
-          name: sam-endpoint
-          items:
-          - key: config.js
-            path: config.js
+        - name: app-config
+          configMap:
+            name: sam-endpoint
+            items:
+              - key: config.js
+                path: config.js
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -96,4 +96,5 @@ spec:
   resources:
     requests:
       storage: 8Gi
----            
+---
+
